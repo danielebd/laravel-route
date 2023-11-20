@@ -6,6 +6,7 @@
         <title>Laravel-intro</title>
     </head>
     <body>
+        @include('partials.header')
         @yield('main')
         @vite('resources/js/app.js')
     </body>

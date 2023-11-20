@@ -1,8 +1,7 @@
 @extends('layout.app')
 
 @section('main')
-    <h1>Home</h1>
-    <a rel="stylesheet" href="/info">info</a>
-    <a rel="stylesheet" href="/about">about</a>
-    <div>{{ $title }}</div>
+    @foreach ($dcomics as $comic)
+        <h3>{{ $comic['titolo'] }}</h3>
+    @endforeach
 @endsection

@@ -16,20 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $data = [
-        'title' => 'ciao sono la home'
+        'dcomics' => config('db')
     ];
+
     return view('home', $data);
-});
+})->name('home');
 
 Route::get('/info', function () {
     $data = [
         'title' => 'ciao sono la info'
     ];
-    return view('info', $data);});
+    return view('info', $data);
+})->name('info');
 
 Route::get('/about', function () {
     $data = [
         'title' => 'ciao sono la about'
     ];
-    return view('about', $data);});
-
+    return view('about', $data);
+})->name('about');
