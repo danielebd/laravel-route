@@ -22,6 +22,21 @@ Route::get('/', function () {
     return view('home', $data);
 })->name('home');
 
+
+Route::get('/detail/{index}', function ($index) {
+    
+    $comics = config('db');
+
+    if($index > count($comics) -1){
+        abort(404);
+    };
+
+    $comic_index = $comics[$index];
+
+    return view('detail', compact('comic_index'));
+})->name('detail')->where('index', '[0-9]+');
+
+
 Route::get('/info', function () {
     $data = [
         'title' => 'ciao sono la info'
@@ -29,9 +44,3 @@ Route::get('/info', function () {
     return view('info', $data);
 })->name('info');
 
-Route::get('/about', function () {
-    $data = [
-        'title' => 'ciao sono la about'
-    ];
-    return view('about', $data);
-})->name('about');
